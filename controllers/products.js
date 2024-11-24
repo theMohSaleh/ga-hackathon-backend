@@ -3,7 +3,6 @@ const Product = require('../models/Product');
 const verifyToken = require('../middleware/verify-token.js');
 const router = express.Router();
 
-// ========== Public Routes ===========
 
 //GET /products - Get a list of all products
 router.get('/', async (req, res) => {
@@ -40,5 +39,5 @@ router.get('/', async (req, res) => {
       }
     }
   });
-  
+
 module.exports = router
