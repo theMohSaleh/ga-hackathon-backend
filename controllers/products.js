@@ -7,7 +7,7 @@ const router = express.Router();
 //GET /products - Get a list of all products
 router.get('/', async (req, res) => {
     try {
-      const productsFound = await Product.find();
+      const productsFound = await Product.find().limit(100);
       if (!productsFound.length) {
         res.status(404);
         throw new Error('No products found');
@@ -17,6 +17,7 @@ router.get('/', async (req, res) => {
       if (res.statusCode === 404) {
         res.json({ error: error.message });
       } else {
+        console.error(error)
         res.status(500).json({ error: error.message });
       }
     }
