@@ -10,6 +10,14 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    customer_name: String,
+    
+    orders: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Order'
+        }
+    ]
 });
 
 userSchema.set('toJSON', {
